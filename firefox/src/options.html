@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AO3 Block Extension Options</title>
+  <script src="options.js"></script>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    button {
+      width: wrap;
+      margin: 5px;
+    }
+
+    label {
+      font-size: 18px !important;
+    }
+
+    div {
+      min-width: 350px;
+    }
+
+    textarea {
+      height: 150px;
+      width:  500px;
+      margin: 10px;
+    }
+
+    #title {
+      font-size:25px; 
+      font-weight:600;
+    }
+
+    #savedconf {
+      opacity:  0;
+      color:  #0e7817;
+    }
+
+    #csvs {
+      display: flex;
+      width: 500px;
+      justify-content: right;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    #savedconf {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>AO3 Blocker</h1>
+  <div id=csvs>
+    <input id="importfile" type="file" style="display: none"/>
+    <button id="import">Import</button>
+    <button id="export">Export</button>
+  </div>
+  <div id=authorSection>
+    <label for="authors">Blocked Authors</label><br>
+    <textarea id="authors"></textarea>
+  </div>
+  <p>
+  <div id=tagSection>
+    <label for="tags">Blocked Tags</label><br>
+    <textarea id="tags"></textarea>
+  </div>
+  <p>
+  <div class=savesettings>
+    <button id="save">Save</button>
+    <div id="savedconf">Saved</div>
+  </div>
+</body>
+</html>
