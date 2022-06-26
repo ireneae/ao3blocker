@@ -1,4 +1,4 @@
-# AO3 Blocker
+# AO3 Editor
 Allows blocking authors and tags so they will not appear in AO3 search.
 
 ## Installation

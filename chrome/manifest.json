@@ -1,5 +1,5 @@
    {
-      "name": "AO3 Blocker",
+      "name": "AO3 Editor",
       "version": "1.0",
       "manifest_version": 3,
       "content_scripts": [
@@ -19,7 +19,7 @@
       ],
       "options_page": "src/options.html",
       "icons": {
-        "48": "icons/ao3block48.png",
-        "128": "icons/ao3block128.png"
+        "48": "icons/ao3edit48.png",
+        "128": "icons/ao3edit128.png"
       }
     }
