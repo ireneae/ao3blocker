@@ -14,6 +14,12 @@ currentBrowser.runtime.onInstalled.addListener(function() {
         id: "addTag",
         targetUrlPatterns: ["https://archiveofourown.org/tags/*"]
     });
+      currentBrowser.contextMenus.create({
+        title: "Block work",
+        contexts: ["link"],
+        id: "addWork",
+        targetUrlPatterns: ["https://archiveofourown.org/works/*"]
+      })
   });
 });
 
@@ -32,6 +38,13 @@ currentBrowser.contextMenus.onClicked.addListener(function(info, tab) {
         }
         currentBrowser.storage.sync.set({'tags': result.tags})
       });
+  } else if (info.menuItemId === "addWork") {
+    currentBrowser.storage.sync.get({'works': []}, function(result) {
+      if (!result.works.includes(info.linkUrl)) {
+        result.works.push(info.linkUrl);
+      }
+      currentBrowser.storage.sync.set({'works': result.works})
+    })
   }
 });
 

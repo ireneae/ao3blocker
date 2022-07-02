@@ -16,30 +16,35 @@ function setup() {
             console.log(parsed)
             currentBrowser.storage.sync.set({'authors': parsed.authors}, function() {
                 currentBrowser.storage.sync.set({'tags': parsed.tags}, function() {
-                    restore_options()
+                    currentBrowser.storage.sync.set({'works': parsed.works}, function () {
+                        restore_options()
+                    })
                 })
             })
         }           
-        fr.readAsText(this.files[0]);
+        fr.readAsText(this.files[0])
     }, false)
     console.log("setup")
 }
 
 function restore_options() {
-    currentBrowser.storage.sync.get({'authors': [], 'tags': []}, function(result) {
-        document.getElementById("authors").value = result.authors.join("\n");
-        document.getElementById("tags").value = result.tags.join("\n");
+    currentBrowser.storage.sync.get({'authors': [], 'tags': [], 'works': []}, function(result) {
+        document.getElementById("authors").value = result.authors.filter(Boolean).join("\n")
+        document.getElementById("tags").value = result.tags.filter(Boolean).join("\n")
+        document.getElementById("works").value = result.works.filter(Boolean).join("\n")
     })
-    document.getElementById('save').addEventListener('click', save);
+    document.getElementById('save').addEventListener('click', save)
 }
 
 function save() {
-    currentBrowser.storage.sync.set({'authors': document.getElementById("authors").value.split("\n")}, function() {
-        currentBrowser.storage.sync.set({'tags': document.getElementById("tags").value.split("\n")}, function() {
-            fade(document.getElementById('savedconf'), 0, 1, function() {
-                setTimeout(function() {
-                    fade(document.getElementById('savedconf'), 1, 0, null)
-                }, 500)
+    currentBrowser.storage.sync.set({'authors': document.getElementById("authors").value.split("\n").filter(Boolean)}, function() {
+        currentBrowser.storage.sync.set({'tags': document.getElementById("tags").value.split("\n").filter(Boolean)}, function() {
+            currentBrowser.storage.sync.set({'works': document.getElementById("works").value.split("\n").filter(Boolean)}, function() {
+                fade(document.getElementById('savedconf'), 0, 1, function() {
+                    setTimeout(function() {
+                        fade(document.getElementById('savedconf'), 1, 0, null)
+                    }, 500)
+                })
             })
         })
     })
@@ -60,10 +65,11 @@ function download(filename, text) {
 
 function saveCsv() {
     save()
-    currentBrowser.storage.sync.get({'authors': [], 'tags': []}, function(result) {
+    currentBrowser.storage.sync.get({'authors': [], 'tags': [], 'works': []}, function(result) {
         var obj = new Object();
         obj.authors = result.authors
         obj.tags = result.tags
+        obj.works = result.works
         download("ao3blocker_export.csv", JSON.stringify(obj))
     })
 }
