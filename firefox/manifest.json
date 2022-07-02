@@ -1,6 +1,6 @@
    {
       "name": "AO3 Editor",
-      "version": "1.0",
+      "version": "1.0.1",
       "manifest_version": 2,
       "content_scripts": [
         {
@@ -28,7 +28,7 @@
       "browser_specific_settings": {
         "gecko": {
           "id": "366e86ede653f924da5245147285a4f61ffb4384@addon",
-          "strict_min_version": "48.0"
+          "strict_min_version": "57.0"
         }
       }
     }
