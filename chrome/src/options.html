@@ -37,12 +37,26 @@
       color:  #0e7817;
     }
 
-    #csvs {
+    #topbar {
       display: flex;
       width: 500px;
-      justify-content: right;
       margin-right: auto;
       margin-left: auto;
+      justify-content: center;
+    }
+
+    #clearl {
+      width: 250px;
+      min-width: 250px;
+      justify-content: left;
+      display: flex;
+    }
+
+    #csvs {
+      width: 250px;
+      min-width: 250px;
+      justify-content: right;
+      display: flex;
     }
 
     #savedconf {
@@ -52,10 +66,15 @@
 </head>
 <body>
   <h1>AO3 Editor</h1>
-  <div id=csvs>
-    <input id="importfile" type="file" style="display: none"/>
-    <button id="import">Import</button>
-    <button id="export">Export</button>
+  <div id=topbar>
+    <div id=clearl>
+      <button id="clear">Clear</button>
+    </div>
+    <div id=csvs>
+      <input id="importfile" type="file" style="display: none"/>
+      <button id="import">Import</button>
+      <button id="export">Export</button>
+    </div>
   </div>
   <div id=workSection>
       <label for="works">Blocked Works</label><br>

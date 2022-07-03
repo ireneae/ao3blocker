@@ -3,6 +3,7 @@ var currentBrowser = (typeof chrome != "object")? browser : chrome;
 const lerp = (a, b, t) => (1 - t) * a + t * b;
 
 function setup() {
+    document.getElementById("clear").addEventListener("click", clear, false)
     document.getElementById("import").addEventListener("click", function () {
         document.getElementById("importfile").click();
       }, false)
@@ -33,6 +34,15 @@ function restore_options() {
         document.getElementById("works").value = result.works.filter(Boolean).join("\n")
     })
     document.getElementById('save').addEventListener('click', save)
+}
+
+function clear() {
+    if (window.confirm("Clear all data? WARNING: this cannot be undone. Consider exporting current settings first.")) {
+        document.getElementById("works").value = ""
+        document.getElementById("authors").value = ""
+        document.getElementById("tags").value = ""
+        save()
+    }
 }
 
 function save() {
