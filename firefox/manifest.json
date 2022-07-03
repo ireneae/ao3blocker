@@ -30,5 +30,13 @@
           "id": "366e86ede653f924da5245147285a4f61ffb4384@addon",
           "strict_min_version": "57.0"
         }
-      }
+      },
+      "page_action": {
+        "default_icon": {
+          "48": "icons/ao3edit48.png",
+          "128": "icons/ao3edit128.png"
+        },
+      "default_popup": "src/popup.html",
+      "show_matches": ["https://archiveofourown.org/*"]
     }
+}

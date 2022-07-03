@@ -24,7 +24,6 @@ function setup() {
         }           
         fr.readAsText(this.files[0])
     }, false)
-    console.log("setup")
 }
 
 function restore_options() {

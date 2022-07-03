@@ -15,8 +15,12 @@
       },
       "permissions": [
         "contextMenus",
-        "storage"
+        "storage",
+        "declarativeContent"
       ],
+      "action": {
+        "default_popup": "src/popup.html"
+      },
       "options_page": "src/options.html",
       "icons": {
         "48": "icons/ao3edit48.png",
