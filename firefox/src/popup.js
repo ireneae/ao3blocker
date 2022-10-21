@@ -29,6 +29,15 @@ function setup() {
       document.remove(c)
     }
     currentBrowser.tabs.sendMessage(tabs[0].id, {request: "current_blocks"}, function(response) {
+      console.log(response.blocks.works)
+      console.log((response.blocks.works ? "true" : "falsy"))
+      document.getElementById("works").style.display = response.blocks.works.length? "initial" : "none"
+      document.getElementById("authors").style.display = response.blocks.authors.length? "initial" : "none"
+      document.getElementById("tags").style.display = response.blocks.tags.length? "initial" : "none"
+      document.getElementById("description").innerHTML = 
+        (response.blocks.works.length || response.blocks.authors.length || response.blocks.tags.length) ? 
+        "Uncheck to show." : "Nothing blocked on this page."
+
       for (const workId in response.blocks.works) {
         createCheckbox(document.getElementById("works"), "work" + workId, response.blocks.works[workId], response.unblocks.works)
       }

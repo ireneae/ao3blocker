@@ -1,10 +1,10 @@
 # AO3 Editor
 Allows hiding authors and tags so they will not appear in AO3 search.
 
-## Public Release (1.0.1)
+## Public Release (1.1)
 [Install Firefox Extension](https://addons.mozilla.org/en-US/firefox/addon/ao3-editor/)
 
-Install Chrome Extension (TBD)
+[Install Chrome Extension](https://chrome.google.com/webstore/detail/ao3-editor/oggeapckgmhapkkiikokhmkepmeabloi)
 
 ## Latest Release (1.0.1)
 You can install the extension manually for the latest updates.
